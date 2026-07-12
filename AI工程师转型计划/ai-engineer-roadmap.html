@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI应用工程师转型路线图 | 6个月实战计划</title>
+<style>
+  :root {
+    --bg: #f8f9fb;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #5c6370;
+    --border: #e8eaed;
+    --primary: #4f46e5;
+    --primary-light: #eef2ff;
+    --green: #059669;
+    --green-light: #ecfdf5;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --blue: #0284c7;
+    --blue-light: #f0f9ff;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --red: #dc2626;
+    --yellow: #ca8a04;
+    --yellow-light: #fefce8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #0284c7 100%);
+    color: white;
+    padding: 60px 24px 50px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 8px; }
+  .hero .meta { display: inline-flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+  .hero .meta-item { background: rgba(255,255,255,0.15); padding: 8px 18px; border-radius: 999px; font-size: 0.9rem; backdrop-filter: blur(10px); }
+
+  /* Section */
+  section { padding: 48px 0; }
+  section h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; }
+  section .section-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 28px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+  }
+
+  /* Status grid */
+  .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .status-item { padding: 20px; border-radius: 12px; }
+  .status-item.have { background: var(--green-light); border-left: 4px solid var(--green); }
+  .status-item.need { background: var(--orange-light); border-left: 4px solid var(--orange); }
+  .status-item h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .status-item.have h4 { color: var(--green); }
+  .status-item.need h4 { color: var(--orange); }
+  .status-item ul { list-style: none; }
+  .status-item li { font-size: 0.92rem; padding: 4px 0; color: var(--text); }
+  .status-item li:before { content: "— "; color: var(--text-secondary); }
+
+  /* Strategy */
+  .strategy-box { background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: 14px; padding: 28px; }
+  .strategy-box h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 16px; }
+  .strategy-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+  .strategy-col h4 { font-size: 0.9rem; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid; }
+  .strategy-col.bad h4 { color: var(--red); border-color: var(--red); }
+  .strategy-col.good h4 { color: var(--green); border-color: var(--green); }
+  .strategy-col ul { list-style: none; }
+  .strategy-col li { font-size: 0.9rem; padding: 5px 0; padding-left: 22px; position: relative; }
+  .strategy-col.bad li:before { content: "✕"; position: absolute; left: 0; color: var(--red); font-weight: bold; }
+  .strategy-col.good li:before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: bold; }
+  @media (max-width: 640px) { .strategy-comparison { grid-template-columns: 1fr; } }
+
+  /* Roadmap timeline */
+  .timeline { position: relative; padding-left: 0; }
+  .phase {
+    display: flex; gap: 20px; margin-bottom: 0; position: relative;
+    padding-bottom: 32px;
+  }
+  .phase:last-child { padding-bottom: 0; }
+  .phase:before {
+    content: ""; position: absolute; left: 19px; top: 40px; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .phase:last-child:before { display: none; }
+  .phase-num {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; color: white; position: relative; z-index: 1;
+  }
+  .phase-0 .phase-num { background: #6b7280; }
+  .phase-1 .phase-num { background: var(--primary); }
+  .phase-2 .phase-num { background: var(--blue); }
+  .phase-3 .phase-num { background: var(--purple); }
+  .phase-4 .phase-num { background: var(--green); }
+  .phase-5 .phase-num { background: var(--orange); }
+  .phase-body { flex: 1; }
+  .phase-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+  .phase-body .weeks { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; }
+  .phase-body .desc { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 12px; }
+
+  /* Project tags */
+  .project-tag {
+    display: inline-block; padding: 3px 10px; border-radius: 6px;
+    font-size: 0.82rem; margin: 2px 4px 2px 0; font-weight: 500;
+  }
+  .tag-p0 { background: #f3f4f6; color: #6b7280; }
+  .tag-p1 { background: var(--primary-light); color: var(--primary); }
+  .tag-p2 { background: var(--blue-light); color: var(--blue); }
+  .tag-p3 { background: var(--purple-light); color: var(--purple); }
+  .tag-p4 { background: var(--green-light); color: var(--green); }
+  .tag-p5 { background: var(--orange-light); color: var(--orange); }
+
+  /* Phase detail */
+  .phase-detail { margin-top: 16px; }
+  .phase-detail h4 { font-size: 0.95rem; margin: 16px 0 8px; color: var(--text); }
+  .phase-detail ul { list-style: none; padding-left: 0; }
+  .phase-detail li { font-size: 0.9rem; padding: 4px 0 4px 20px; position: relative; }
+  .phase-detail li:before { content: "▸"; position: absolute; left: 0; color: var(--primary); }
+
+  /* Project card */
+  .project-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; margin-bottom: 14px;
+  }
+  .project-card .proj-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .project-card .proj-num {
+    width: 28px; height: 28px; border-radius: 6px; display: flex;
+    align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: white;
+  }
+  .project-card h4 { font-size: 1rem; font-weight: 600; }
+  .project-card .proj-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 8px; }
+  .project-card .proj-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-pill { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; background: #f3f4f6; color: var(--text-secondary); }
+  .proj-why { font-size: 0.82rem; color: var(--green); margin-top: 8px; font-style: italic; }
+
+  /* Flow section */
+  .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .flow-card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+  .flow-card .flow-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .flow-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+  .flow-card p { font-size: 0.85rem; color: var(--text-secondary); }
+
+  /* Budget */
+  .budget-table { width: 100%; border-collapse: collapse; }
+  .budget-table th { text-align: left; padding: 12px 16px; background: #f3f4f6; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .budget-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+  .budget-table tr:last-child td { border-bottom: none; }
+  .budget-table .total td { font-weight: 700; background: var(--primary-light); color: var(--primary); }
+
+  /* Weekly schedule */
+  .week-schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 16px; }
+  .day-cell { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 8px; text-align: center; }
+  .day-cell .day-name { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 6px; }
+  .day-cell .day-content { font-size: 0.8rem; font-weight: 500; }
+  .day-cell.work { border-top: 3px solid var(--primary); }
+  .day-cell.project { border-top: 3px solid var(--green); }
+  .day-cell.review { border-top: 3px solid var(--orange); }
+  .day-cell.rest { border-top: 3px solid #d1d5db; background: #fafafa; }
+  @media (max-width: 640px) { .week-schedule { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Resources */
+  .resource-list { list-style: none; }
+  .resource-list li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; align-items: start; gap: 12px; }
+  .resource-list li:last-child { border-bottom: none; }
+  .resource-cat { flex-shrink: 0; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+  .resource-info { flex: 1; }
+  .resource-info .r-name { font-size: 0.92rem; font-weight: 500; }
+  .resource-info .r-desc { font-size: 0.82rem; color: var(--text-secondary); }
+  .resource-free { background: var(--green-light); color: var(--green); }
+
+  /* Principles */
+  .principle { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .principle:last-child { border-bottom: none; }
+  .principle .p-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+  .principle .p-content h4 { font-size: 0.95rem; margin-bottom: 4px; }
+  .principle .p-content p { font-size: 0.88rem; color: var(--text-secondary); }
+
+  /* Callout */
+  .callout {
+    background: var(--yellow-light); border: 1px solid #fde68a; border-radius: 12px;
+    padding: 20px; margin: 20px 0;
+  }
+  .callout h4 { color: var(--yellow); font-size: 0.95rem; margin-bottom: 8px; }
+  .callout p { font-size: 0.9rem; color: var(--text); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 40px 24px; color: var(--text-secondary); font-size: 0.85rem; }
+  .footer .heart { color: var(--red); }
+
+  /* Daily template */
+  .daily-block { display: flex; gap: 12px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .daily-block:last-child { border-bottom: none; }
+  .daily-time { flex-shrink: 0; width: 100px; font-weight: 600; font-size: 0.88rem; color: var(--primary); }
+  .daily-task { flex: 1; }
+  .daily-task .dt-title { font-size: 0.92rem; font-weight: 500; }
+  .daily-task .dt-desc { font-size: 0.82rem; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>AI 应用工程师转型路线图</h1>
+  <p class="subtitle">从学校电教员到 AI 应用工程师 · 6 个月实战计划</p>
+  <div class="meta">
+    <span class="meta-item">⏱ 每天 3 小时</span>
+    <span class="meta-item">💰 预算 1 万元</span>
+    <span class="meta-item">📅 26 周完成</span>
+    <span class="meta-item">🎯 项目驱动</span>
+  </div>
+</div>
+
+<!-- 现状分析 -->
+<section>
+  <div class="container">
+    <h2>1. 你现在在哪里</h2>
+    <p class="section-desc">先诚实地盘点一下——你拥有的比你以为的多。</p>
+    <div class="status-grid">
+      <div class="status-item have">
+        <h4>✦ 你已经拥有的</h4>
+        <ul>
+          <li>PE 装系统 → 懂操作系统安装与部署</li>
+          <li>简单 Linux 操作 → 命令行不陌生</li>
+          <li>路由器配置 → 理解网络基础</li>
+          <li>Java/Python 开发经历 → 语法记忆可以被唤醒</li>
+          <li>电教员工作 → 懂硬件、网络、系统运维</li>
+          <li>每天 3 小时 → 每周 21 小时，足够了</li>
+          <li>1 万元预算 → 够用，且不需要再报课</li>
+        </ul>
+      </div>
+      <div class="status-item need">
+        <h4>✦ 你需要补齐的</h4>
+        <ul>
+          <li>Python 编程能力（从"记得一点"到"能写出来"）</li>
+          <li>Web API 基础（FastAPI / HTTP）</li>
+          <li>LLM API 调用与 Prompt Engineering</li>
+          <li>RAG（检索增强生成）技术栈</li>
+          <li>向量数据库使用</li>
+          <li>Git 版本控制与 GitHub 作品集</li>
+          <li>深度学习的心流状态</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>💡 一个关键认知</h4>
+      <p>你的电教员工作经验，在 AI 应用工程师的技能树里，直接对应的是<strong>"部署与运维"</strong>能力。很多纯学编程的人反而搞不定服务器、Docker、网络配置这些事——而这恰恰是你的舒适区。你不是从零开始，你是在已有的基础上往上长。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 核心策略 -->
+<section style="background: white;">
+  <div class="container">
+    <h2>2. 为什么这次不一样</h2>
+    <p class="section-desc">你之前花近 1 万报网课没效果，不是你的问题，是方法的问题。</p>
+    <div class="strategy-box">
+      <h3>策略对比：之前 vs 这次</h3>
+      <div class="strategy-comparison">
+        <div class="strategy-col bad">
+          <h4>之前的方式（无效）</h4>
+          <ul>
+            <li>看视频为主，被动接收</li>
+            <li>没有明确的"完成"标准</li>
+            <li>学了不用，没有即时反馈</li>
+            <li>课程无限长，永远学不完</li>
+            <li>一个人闷头学，没有反馈循环</li>
+            <li>追求"学完"，而不是"做出来"</li>
+          </ul>
+        </div>
+        <div class="strategy-col good">
+          <h4>这次的方式（有效）</h4>
+          <ul>
+            <li>项目驱动，先做再学</li>
+            <li>每个项目有明确的"能跑了"标准</li>
+            <li>代码跑起来就是即时反馈</li>
+            <li>每个项目 1-2 周完成，有终点</li>
+            <li>Git 提交记录就是进度条</li>
+            <li>追求"做出来"，而不是"学完"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 路线图总览 -->
+<section>
+  <div class="container">
+    <h2>3. 六个月路线图</h2>
+    <p class="section-desc">5 个阶段，7 个项目，每个项目都是一块垫脚石。</p>
+
+    <div class="timeline">
+      <div class="phase phase-0">
+        <div class="phase-num">0</div>
+        <div class="phase-body">
+          <h3>环境搭建与心态校准</h3>
+          <div class="weeks">第 1 周 · 7 天</div>
+          <div class="desc">不写一行代码，先把武器准备好，把学习机制建立起来。</div>
+          <span class="project-tag tag-p0">环境配置</span>
+          <span class="project-tag tag-p0">学习机制</span>
+        </div>
+      </div>
+
+      <div class="phase phase-1">
+        <div class="phase-num">1</div>
+        <div class="phase-body">
+          <h3>Python 复活计划</h3>
+          <div class="weeks">第 2-5 周 · 28 天</div>
+          <div class="desc">不是从头学 Python，而是通过写真实脚本来唤醒沉睡的编程记忆。</div>
+          <span class="project-tag tag-p1">项目1: 文件整理机器人</span>
+          <span class="project-tag tag-p1">项目2: 设备管理CLI</span>
+        </div>
+      </div>
+
+      <div class="phase phase-2">
+        <div class="phase-num">2</div>
+        <div class="phase-body">
+          <h3>Web API 基础</h3>
+          <div class="weeks">第 6-9 周 · 28 天</div>
+          <div class="desc">学会把 Python 代码变成别人能调用的 API 服务。</div>
+          <span class="project-tag tag-p2">项目3: REST API 服务</span>
+        </div>
+      </div>
+
+      <div class="phase phase-3">
+        <div class="phase-num">3</div>
+        <div class="phase-body">
+          <h3>AI 应用入门</h3>
+          <div class="weeks">第 10-14 周 · 35 天</div>
+          <div class="desc">开始调用大模型 API，构建你的第一个 AI 应用。</div>
+          <span class="project-tag tag-p3">项目4: AI 对话助手</span>
+          <span class="project-tag tag-p3">项目5: 文档问答系统</span>
+        </div>
+      </div>
+
+      <div class="phase phase-4">
+        <div class="phase-num">4</div>
+        <div class="phase-body">
+          <h3>RAG 进阶与落地</h3>
+          <div class="weeks">第 15-20 周 · 42 天</div>
+          <div class="desc">深入 RAG 技术栈，做一个能在学校实际使用的系统。</div>
+          <span class="project-tag tag-p4">项目6: 学校知识库问答</span>
+        </div>
+      </div>
+
+      <div class="phase phase-5">
+        <div class="phase-num">5</div>
+        <div class="phase-body">
+          <h3>作品集与求职</h3>
+          <div class="weeks">第 21-26 周 · 42 天</div>
+          <div class="desc">打磨作品集，写技术博客，准备面试，开始投递。</div>
+          <span class="project-tag tag-p5">项目7: 综合作品</span>
+          <span class="project-tag tag-p5">面试准备</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 各阶段详细计划 -->
+<section style="background: white;">
+  <div class="container">
+    <h2>4. 各阶段详细计划</h2>
+    <p class="section-desc">每个阶段都包含：学习目标、具体项目、每日安排、完成标准。</p>
+
+    <!-- Phase 0 -->
+    <div class="card">
+      <h3 style="color: #6b7280;">阶段 0：环境搭建与心态校准（第 1 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>搭建完整的本地开发环境</li>
+          <li>注册 GitHub 账号，学会基本的 Git 操作</li>
+          <li>建立每日学习记录机制</li>
+          <li>理解心流的三个前提条件</li>
+        </ul>
+        <h4>具体任务</h4>
+        <ul>
+          <li>安装 VS Code + Python 3.12 + Git</li>
+          <li>注册 GitHub 账号，创建第一个仓库 learning-log</li>
+          <li>学会 5 个 Git 命令：init, add, commit, push, status</li>
+          <li>注册一个国内大模型 API 账号（通义千问/智谱GLM，有免费额度）</li>
+          <li>在 GitHub 仓库里写第一个 README.md，写下你的目标</li>
+          <li>用 Markdown 建立每日学习日志模板</li>
+        </ul>
+        <h4>完成标准</h4>
+        <ul>
+          <li>能在终端运行 python3 --version 看到版本号</li>
+          <li>能在 GitHub 上看到你的第一个 commit</li>
+          <li>有一份写着目标的 README.md</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="card">
+      <h3 style="color: var(--primary);">阶段 1：Python 复活计划（第 2-5 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>唤醒 Python 基础语法记忆（变量、条件、循环、函数、类）</li>
+          <li>掌握文件操作、目录遍历</li>
+          <li>学会用 pip 安装第三方库</li>
+          <li>养成每天 Git 提交的习惯</li>
+        </ul>
+
+        <h4>项目 1：文件整理机器人（第 2-3 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--primary);">1</div>
+            <h4>自动文件分类整理工具</h4>
+          </div>
+          <p class="proj-desc">写一个 Python 脚本，扫描指定目录，按文件类型（图片、文档、视频、音频、压缩包）自动归类到不同文件夹。你每天在学校管理电脑，这个工具马上就能用。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">os 模块</span>
+            <span class="skill-pill">shutil</span>
+            <span class="skill-pill">pathlib</span>
+            <span class="skill-pill">函数封装</span>
+            <span class="skill-pill">命令行参数</span>
+          </div>
+          <p class="proj-why">→ 为什么选这个项目：结合你的日常工作，做完就能在学校电脑上用，真实场景真实需求</p>
+        </div>
+
+        <h4>项目 2：设备管理 CLI 工具（第 4-5 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--primary);">2</div>
+            <h4>学校电教设备管理系统</h4>
+          </div>
+          <p class="proj-desc">做一个命令行工具，管理学校电教设备：添加设备、查询设备、记录维修历史。数据用 JSON 或 SQLite 存储。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">JSON/SQLite</span>
+            <span class="skill-pill">argparse</span>
+            <span class="skill-pill">CRUD 操作</span>
+            <span class="skill-pill">数据建模</span>
+          </div>
+          <p class="proj-why">→ 为什么选这个项目：解决你工作中的真实痛点，同时学会数据库基础操作</p>
+        </div>
+
+        <h4>每日安排（3 小时分配）</h4>
+        <div class="daily-block">
+          <div class="daily-time">前 30 分钟</div>
+          <div class="daily-task">
+            <div class="dt-title">查文档/搜答案</div>
+            <div class="dt-desc">遇到不懂的语法，查 Python 官方文档或 Stack Overflow，不看视频教程</div>
+          </div>
+        </div>
+        <div class="daily-block">
+          <div class="daily-time">中间 2 小时</div>
+          <div class="daily-task">
+            <div class="dt-title">写代码</div>
+            <div class="dt-desc">对着项目写代码，卡住了就搜，搜到了就用，用了就记住了</div>
+          </div>
+        </div>
+        <div class="daily-block">
+          <div class="daily-time">后 30 分钟</div>
+          <div class="daily-task">
+            <div class="dt-title">Git 提交 + 日志</div>
+            <div class="dt-desc">提交代码到 GitHub，在日志里写下今天解决了什么问题</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="card">
+      <h3 style="color: var(--blue);">阶段 2：Web API 基础（第 6-9 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>理解 HTTP 协议基础（GET/POST/JSON）</li>
+          <li>学会用 FastAPI 构建 REST API</li>
+          <li>理解前后端分离架构</li>
+          <li>学会用 Postman 或 curl 测试 API</li>
+        </ul>
+
+        <h4>项目 3：设备管理 API 服务（第 6-9 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--blue);">3</div>
+            <h4>把项目 2 升级为 Web API</h4>
+          </div>
+          <p class="proj-desc">用 FastAPI 把项目 2 的设备管理工具改造成一个 Web API 服务，支持通过 HTTP 请求来增删改查设备信息。加一个简单的 HTML 页面来展示设备列表。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Pydantic</span>
+            <span class="skill-pill">SQLite</span>
+            <span class="skill-pill">HTML/CSS 基础</span>
+            <span class="skill-pill">Uvicorn</span>
+          </div>
+          <p class="proj-why">→ 为什么选这个项目：在已有项目上升级，降低认知负担；同时学会 Web 开发核心技能</p>
+        </div>
+
+        <h4>完成标准</h4>
+        <ul>
+          <li>能在浏览器访问 API 文档（FastAPI 自动生成）</li>
+          <li>能用 curl 或 Postman 增删改查设备</li>
+          <li>有一个简单的前端页面展示数据</li>
+          <li>代码在 GitHub 上，有清晰的 README</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="card">
+      <h3 style="color: var(--purple);">阶段 3：AI 应用入门（第 10-14 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>理解 LLM（大语言模型）的工作原理</li>
+          <li>学会调用大模型 API（通义千问/智谱GLM/OpenAI）</li>
+          <li>掌握 Prompt Engineering 基本技巧</li>
+          <li>理解 Embedding 和向量检索的概念</li>
+          <li>学会用 Streamlit 快速搭建 AI 应用界面</li>
+        </ul>
+
+        <h4>项目 4：AI 对话助手（第 10-12 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--purple);">4</div>
+            <h4>个人 AI 助手 Web 应用</h4>
+          </div>
+          <p class="proj-desc">用 Streamlit + 大模型 API 做一个有界面的 AI 对话助手。支持多轮对话、系统人设设定、对话历史保存。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">LLM API 调用</span>
+            <span class="skill-pill">Prompt Engineering</span>
+            <span class="skill-pill">Streamlit</span>
+            <span class="skill-pill">多轮对话管理</span>
+          </div>
+          <p class="proj-why">→ 第一个真正的 AI 应用，做完会很有成就感</p>
+        </div>
+
+        <h4>项目 5：文档问答系统（第 13-14 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--purple);">5</div>
+            <h4>PDF/文档智能问答</h4>
+          </div>
+          <p class="proj-desc">上传一个 PDF 或文本文件，AI 读取内容后回答关于文档的问题。这是 RAG 的最简版本。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">文本分块</span>
+            <span class="skill-pill">Embedding</span>
+            <span class="skill-pill">向量检索</span>
+            <span class="skill-pill">LangChain 基础</span>
+          </div>
+          <p class="proj-why">→ RAG 的入门版本，为下一阶段的大型项目打基础</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="card">
+      <h3 style="color: var(--green);">阶段 4：RAG 进阶与落地（第 15-20 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>深入理解 RAG 完整技术栈</li>
+          <li>掌握向量数据库（Chroma/Milvus）</li>
+          <li>学会文档解析、分块策略、检索优化</li>
+          <li>学会用 Docker 部署应用</li>
+          <li>完成一个可实际使用的系统</li>
+        </ul>
+
+        <h4>项目 6：学校知识库问答系统（第 15-20 周）★ 核心项目</h4>
+        <div class="project-card" style="border: 2px solid var(--green);">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--green);">6</div>
+            <h4>学校制度/操作手册智能问答系统</h4>
+          </div>
+          <p class="proj-desc">把学校的各种制度文档、设备操作手册、常见问题解答整理成知识库，做一个 AI 问答系统。老师/同事可以直接问"投影仪不亮怎么办"、"请假流程是什么"，系统从知识库中检索并回答。</p>
+          <div class="proj-skills">
+            <span class="skill-pill">LangChain/LlamaIndex</span>
+            <span class="skill-pill">Chroma 向量数据库</span>
+            <span class="skill-pill">文档解析（PDF/Word/Excel）</span>
+            <span class="skill-pill">RAG 检索优化</span>
+            <span class="skill-pill">Docker 部署</span>
+            <span class="skill-pill">FastAPI 后端</span>
+            <span class="skill-pill">前端界面</span>
+          </div>
+          <p class="proj-why">→ 这是你的"招牌项目"：真实场景、真实用户、能写进简历的完整系统。面试官看到这个会眼前一亮。</p>
+        </div>
+
+        <h4>为什么这个项目是核心</h4>
+        <ul>
+          <li>它是一个完整的 AI 应用，涵盖从前端到后端到 AI 模型的全链路</li>
+          <li>它解决真实问题，你可以在学校实际部署使用</li>
+          <li>它涉及 RAG——目前 AI 应用工程师最核心的技能</li>
+          <li>它有真实用户反馈，你可以说"系统在学校运行了 X 个月，服务了 Y 人次"</li>
+          <li>它展示了你的项目管理能力，不只是写代码</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="card">
+      <h3 style="color: var(--orange);">阶段 5：作品集与求职（第 21-26 周）</h3>
+      <div class="phase-detail">
+        <h4>学习目标</h4>
+        <ul>
+          <li>完善 GitHub 作品集</li>
+          <li>写 3-5 篇技术博客</li>
+          <li>准备简历和面试</li>
+          <li>开始投递简历</li>
+        </ul>
+
+        <h4>项目 7：综合作品（第 21-23 周）</h4>
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-num" style="background: var(--orange);">7</div>
+            <h4>开源一个 AI 工具 / 写一个技术教程项目</h4>
+          </div>
+          <p class="proj-desc">基于前 6 个项目的经验，做一个更有野心的项目。可以是：一个 AI 工作流自动化工具、一个 Prompt 管理平台、或者把你的学习过程整理成一个开源教程。</p>
+          <p class="proj-why">→ 展示你不仅能"跟着做"，还能"自己想"</p>
+        </div>
+
+        <h4>求职准备（第 24-26 周）</h4>
+        <ul>
+          <li>写简历：突出项目经验，特别是项目 6 的真实落地</li>
+          <li>写技术博客：把项目 4-6 的过程写成系列文章（掘金/CSDN/个人博客）</li>
+          <li>整理 GitHub：确保每个项目有清晰的 README 和截图</li>
+          <li>刷面试题：Python 基础 + RAG 原理 + 项目深度问答</li>
+          <li>开始投递：AI 应用开发岗位、Python 开发岗位</li>
+          <li>目标城市：先本地/远程，逐步扩大范围</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 心流重建 -->
+<section>
+  <div class="container">
+    <h2>5. 如何重建心流状态</h2>
+    <p class="section-desc">你说自从高考后就没有过心流。这不是你的错——高考后你的学习方式变了，从"解题"变成了"看视频"，心流自然消失了。</p>
+
+    <div class="callout">
+      <h4>🧠 心流的三个前提条件（心理学家米哈里·契克森米哈赖）</h4>
+      <p><strong>1. 清晰的目标</strong>——你清楚地知道下一步要做什么<br>
+      <strong>2. 即时反馈</strong>——你立刻知道自己做得对不对<br>
+      <strong>3. 挑战与能力匹配</strong>——不太简单也不太难，刚刚好</p>
+      <p style="margin-top: 8px;">高考时你有这三个条件：清晰的考纲、模拟考分数、题目难度递进。之后的学习你丢了这三个条件。这份计划就是帮你把它们找回来。</p>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-icon">🎯</div>
+        <h4>清晰目标</h4>
+        <p>每个项目都有明确的"能跑了"标准。不是"学完 Python"，而是"文件整理脚本能跑了"。每天开工前写下今天要实现的一个小功能。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-icon">⚡</div>
+        <h4>即时反馈</h4>
+        <p>代码跑起来就是反馈。报错了就修，修好了就继续。Git commit 就是你的"得分"。每次 commit 都是一次正反馈。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-icon">📈</div>
+        <h4>难度递进</h4>
+        <p>项目从简单到复杂：先写 50 行脚本，再写 200 行工具，再写 500 行 API，最后写 1000+ 行的完整系统。每一步都比上一步难一点点。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-icon">🔥</div>
+        <h4>番茄工作法</h4>
+        <p>3 小时拆成 6 个番茄钟（25 分钟专注 + 5 分钟休息）。每个番茄钟只做一件事。不要看手机，不要开微信。手机放到另一个房间。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-icon">📝</div>
+        <h4>每日日志</h4>
+        <p>每天结束前花 5 分钟写：今天解决了什么问题、卡在哪里、明天要做什么。这就是你的"模拟考分数"——看得见的进步。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-icon">🔗</div>
+        <h4>连续记录</h4>
+        <p>GitHub 主页的绿色方块就是你的连续记录。就像打游戏保持连胜。目标是 26 周不断更。断了也没关系，第二天继续。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 预算分配 -->
+<section style="background: white;">
+  <div class="container">
+    <h2>6. 1 万元预算怎么花</h2>
+    <p class="section-desc">核心原则：不报课，买体验。钱花在让你能动手实践的地方。</p>
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>项目</th>
+          <th>预算</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>大模型 API 调用费</td>
+          <td>¥ 2,000</td>
+          <td>通义千问/智谱GLM 等，有免费额度，超出后按量付费。这是最核心的投入——你真正在用 AI。</td>
+        </tr>
+        <tr>
+          <td>云服务器（6 个月）</td>
+          <td>¥ 1,000</td>
+          <td>阿里云/腾讯云轻量服务器，2 核 4G 足够。用来部署你的项目和学习 Linux 运维。</td>
+        </tr>
+        <tr>
+          <td>域名</td>
+          <td>¥ 100</td>
+          <td>一个 .com 或 .cn 域名，给你的项目一个线上地址。</td>
+        </tr>
+        <tr>
+          <td>书籍（2-3 本）</td>
+          <td>¥ 200</td>
+          <td>《Python 编程：从入门到实践》《LangChain 实战》等。书比视频课好——你可以跳着看、随时翻。</td>
+        </tr>
+        <tr>
+          <td>向量化 API 费用</td>
+          <td>¥ 500</td>
+          <td>Embedding API 调用费用，RAG 项目需要。</td>
+        </tr>
+        <tr>
+          <td>备用金</td>
+          <td>¥ 6,200</td>
+          <td>留着，不急。可能用于面试交通、更好的云服务配置、或者报一个针对性的面试辅导。</td>
+        </tr>
+        <tr class="total">
+          <td>合计</td>
+          <td>¥ 10,000</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <h4>⚠️ 不要花的钱</h4>
+      <p>不要再买网课。你已经花过近 1 万了，效果验证了——被动看视频无法建立心流。你需要的是动手，不是听课。所有知识都能在官方文档、免费教程、和 AI 助手中找到。遇到问题直接问 AI，比任何网课老师都耐心。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 每周模板 -->
+<section>
+  <div class="container">
+    <h2>7. 一周怎么过</h2>
+    <p class="section-desc">每周 21 小时，这样分配最高效。</p>
+
+    <div class="week-schedule">
+      <div class="day-cell work">
+        <div class="day-name">周一</div>
+        <div class="day-content">学+练<br><small>3h</small></div>
+      </div>
+      <div class="day-cell project">
+        <div class="day-name">周二</div>
+        <div class="day-content">纯写代码<br><small>3h</small></div>
+      </div>
+      <div class="day-cell work">
+        <div class="day-name">周三</div>
+        <div class="day-content">学+练<br><small>3h</small></div>
+      </div>
+      <div class="day-cell project">
+        <div class="day-name">周四</div>
+        <div class="day-content">纯写代码<br><small>3h</small></div>
+      </div>
+      <div class="day-cell work">
+        <div class="day-name">周五</div>
+        <div class="day-content">学+练<br><small>3h</small></div>
+      </div>
+      <div class="day-cell project">
+        <div class="day-name">周六</div>
+        <div class="day-content">深度项目<br><small>3h</small></div>
+      </div>
+      <div class="day-cell review">
+        <div class="day-name">周日</div>
+        <div class="day-content">复盘+Git<br><small>3h</small></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <div class="daily-block">
+        <div class="daily-time">学+练日</div>
+        <div class="daily-task">
+          <div class="dt-title">查文档 → 写代码 → 报错 → 搜答案 → 修复</div>
+          <div class="dt-desc">不是先看 1 小时视频再写代码。而是先写代码，卡住了才去查。查的效率是看的 10 倍。</div>
+        </div>
+      </div>
+      <div class="daily-block">
+        <div class="daily-time">纯写代码日</div>
+        <div class="daily-task">
+          <div class="dt-title">不学新东西，只推进项目</div>
+          <div class="dt-desc">用已经学过的知识往前写。这一天的目标是让代码更长、功能更多。哪怕写得很丑，先跑起来。</div>
+        </div>
+      </div>
+      <div class="daily-block">
+        <div class="daily-time">深度项目日</div>
+        <div class="daily-task">
+          <div class="dt-title">集中精力攻克一个难点</div>
+          <div class="dt-desc">周六是黄金时间，选一个本周卡住的问题，集中 3 小时攻克它。心流最容易在这天出现。</div>
+        </div>
+      </div>
+      <div class="daily-block">
+        <div class="daily-time">复盘日</div>
+        <div class="daily-task">
+          <div class="dt-title">整理代码 + 写日志 + 看本周 commit</div>
+          <div class="dt-desc">回看一周的 Git 提交记录，看看自己写了多少代码。整理代码结构，删掉无用的注释和测试代码。写一篇简短的周总结。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 免费资源 -->
+<section style="background: white;">
+  <div class="container">
+    <h2>8. 免费学习资源</h2>
+    <p class="section-desc">不需要花钱，这些就够你学到能找工作。</p>
+    <ul class="resource-list">
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">Python 官方文档 (docs.python.org)</div>
+          <div class="r-desc">最权威的 Python 学习资料。遇到语法问题第一选择。中文版可用。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">FastAPI 官方教程 (fastapi.tiangolo.com)</div>
+          <div class="r-desc">写得像教科书一样好的官方文档，从头跟着做一遍就会了。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">LangChain 官方文档</div>
+          <div class="r-desc">AI 应用开发的核心框架，文档有完整的 Quickstart 和 CookBook。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">通义千问 / 智谱 GLM API 文档</div>
+          <div class="r-desc">国内大模型 API，有免费额度，文档清晰，无需翻墙。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">Streamlit 官方文档</div>
+          <div class="r-desc">用 Python 快速搭建 AI 应用界面的框架，文档有大量实例。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">GitHub (github.com)</div>
+          <div class="r-desc">你的代码仓库 + 作品集 + 学习平台。搜索别人的项目来学习。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">菜鸟教程 (runoob.com)</div>
+          <div class="r-desc">Git、Linux、SQL 等基础知识的快速参考。不用深读，用到时查。</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-cat resource-free">免费</span>
+        <div class="resource-info">
+          <div class="r-name">AI 助手（就是我）</div>
+          <div class="r-desc">遇到任何问题直接问我。写代码、调 bug、解释概念、推荐方案。比任何网课都实时、都精准。</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 原则 -->
+<section>
+  <div class="container">
+    <h2>9. 七条原则</h2>
+    <p class="section-desc">贴在你书桌前，每天看一遍。</p>
+    <div class="card">
+      <div class="principle">
+        <div class="p-num">1</div>
+        <div class="p-content">
+          <h4>先做再学，不做不学</h4>
+          <p>不要"准备好了再开始"。写一行代码就是开始。报错了就去查，查到了就学会了。这是最高效的学习方式。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">2</div>
+        <div class="p-content">
+          <h4>每天提交，雷打不动</h4>
+          <p>哪怕只写了一行代码，也要 Git commit。连续记录是你的进度条，也是你给未来的自己的证据。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">3</div>
+        <div class="p-content">
+          <h4>完成比完美重要</h4>
+          <p>代码写得丑没关系，先跑起来。跑起来之后再优化。不要在细节上纠结到放弃。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">4</div>
+        <div class="p-content">
+          <h4>一个项目一个仓库</h4>
+          <p>每个项目单独建一个 GitHub 仓库。写清楚 README。这些仓库就是你的简历。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">5</div>
+        <div class="p-content">
+          <h4>遇到问题先问 AI</h4>
+          <p>不要在 Google 里翻了 10 页还找不到答案。直接把报错信息贴给 AI，它能 3 秒内告诉你哪里错了、怎么修。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">6</div>
+        <div class="p-content">
+          <h4>手机放另一个房间</h4>
+          <p>3 小时的学习时间里，手机不在身边。这是心流的物理保障。微信消息晚 3 小时回，天塌不下来。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">7</div>
+        <div class="p-content">
+          <h4>记住你为什么开始</h4>
+          <p>还房贷、结婚、改变人生。每次想放弃的时候，想想这三个词。然后打开电脑，写一行代码。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 里程碑 -->
+<section style="background: white;">
+  <div class="container">
+    <h2>10. 里程碑检查点</h2>
+    <p class="section-desc">到了这些时间点，检查自己是否达标。没达标就调整，不要焦虑。</p>
+    <div class="card">
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>时间点</th>
+            <th>检查标准</th>
+            <th>如果没达标</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第 1 周末</td>
+            <td>开发环境就绪，GitHub 有第一个 commit</td>
+            <td>多花 3 天也没关系，环境一定要搭好</td>
+          </tr>
+          <tr>
+            <td>第 5 周末</td>
+            <td>完成 2 个 Python 项目，能独立写 100 行脚本</td>
+            <td>如果项目没完成，减少功能范围，先完成再完美</td>
+          </tr>
+          <tr>
+            <td>第 9 周末</td>
+            <td>FastAPI 服务能跑，能通过浏览器访问</td>
+            <td>如果卡住了，把问题贴给 AI，不要卡超过 2 天</td>
+          </tr>
+          <tr>
+            <td>第 14 周末</td>
+            <td>AI 对话助手能用了，文档问答能跑通</td>
+            <td>这个阶段最难，坚持住。可以适当延长 1 周</td>
+          </tr>
+          <tr>
+            <td>第 20 周末</td>
+            <td>学校知识库问答系统上线运行</td>
+            <td>核心项目，值得多花时间。但不要超过 3 周延期</td>
+          </tr>
+          <tr>
+            <td>第 26 周末</td>
+            <td>简历完成，GitHub 有 7 个项目，开始投递</td>
+            <td>即使项目没全部完成，有 5 个也可以开始投了</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+  <p>这份计划不是一份"课程表"，而是一张"作战地图"。</p>
+  <p>你不需要学完所有东西才能开始——你已经可以开始了。</p>
+  <p style="margin-top: 12px;">打开终端，创建你的第一个 Git 仓库。</p>
+  <p style="margin-top: 16px; font-size: 0.8rem;">Generated for Michael · 2026.07.12 · <span class="heart">♥</span> 为了房贷、为了结婚、为了不一样的人生</p>
+</div>
+
+</body>
+</html>
