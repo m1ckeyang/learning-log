@@ -10,20 +10,32 @@
 
 ## 用法
 
-1. 确保有一个测试目录（比如 `~/Desktop/test-folder`），里面放一些不同类型的文件。
-2. 修改 `main.py` 里的 `source_dir` 为你自己的路径。
-3. 运行：
-
 ```bash
-python3 main.py
+# 基本用法：整理指定目录
+python3 main.py ~/Desktop/test-folder
+
+# 预览模式：只看会做什么，不实际移动文件
+python3 main.py ~/Downloads --dry-run
+
+# 查看帮助
+python3 main.py --help
 ```
 
-4. 查看目录——文件应该被自动归类到了对应的子文件夹里。
+## 分类规则
+| 分类 | 扩展名 |
+|------|--------|
+| 图片 | .jpg .jpeg .png .gif .bmp .svg .webp .heic |
+| 文档 | .pdf .doc .docx .txt .xlsx .xls .ppt .pptx .csv .md |
+| 视频 | .mp4 .avi .mov .mkv .flv .wmv |
+| 音频 | .mp3 .wav .flac .aac .m4a |
+| 压缩包 | .zip .rar .7z .tar .gz .bz2 |
+| 代码 | .py .js .ts .html .css .java .cpp .c .go .rs |
+| 其他 | 不在以上列表中的文件 |
 
-## 当前版本
-v0.1：基础分类，支持图片、文档、视频、音频、压缩包、代码、其他。
+## 版本历史
+- **v0.2**：添加命令行参数（argparse），不用改代码就能指定目录；新增预览模式（--dry-run）
+- **v0.1**：基础分类，按文件类型自动归类
 
 ## 后续计划
-v0.2：支持按日期再分类，比如 `文档/2026-07/通知.pdf`。
-v0.3：支持命令行参数，不用改代码里的路径。
-v0.4：支持日志文件，记录每次整理移动了哪些文件。
+- v0.3：支持按日期再分类，比如 `文档/2026-07/通知.pdf`
+- v0.4：支持日志文件，记录每次整理移动了哪些文件
